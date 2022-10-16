@@ -1,0 +1,7 @@
+#define OLAS_VERSION_MAJOR 1
+#define OLAS_VERSION_MINOR 0
+
+
+
+
+

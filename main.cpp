@@ -1,10 +1,16 @@
 #include <iostream>
 #include <basics.h>
 #include <GLFW/glfw3.h>
+#include <OLASConfig.h>
 
 int main () 
 {
 
+    // Version 
+    std::cout << "Version  " << OLAS_VERSION_MAJOR << "." << OLAS_VERSION_MINOR << "\n";
+
+
+    // Basic Math
     int a, b;
     std::cout << "Please input 2 numbers!\n";
     std::cin >> a >> b;
@@ -13,6 +19,7 @@ int main ()
     std::cout << "subtrance\t" << subtract (a,b) << "\n";
 
 
+    // GLFW 
     GLFWwindow *window;
 
 

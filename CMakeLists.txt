@@ -9,6 +9,17 @@ add_executable(${PROJECT_NAME} main.cpp)
 target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
 
 add_subdirectory(Math_Lib)
+
+
+
+# DOWNLOAD ALL THE SUBMODULE
+find_package(git QUIET)
+execute_process(COMMAND ${GIT_EXECUTE} submodule update --init --recursive
+                WORKING DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+                RESULT_VARIABLE GIT_SUBMOD_RESULT)
+
+
+
 add_subdirectory(external/gflw)
 
 

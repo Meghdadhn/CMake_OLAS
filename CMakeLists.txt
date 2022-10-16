@@ -14,10 +14,18 @@ add_subdirectory(Math_Lib)
 
 # DOWNLOAD ALL THE SUBMODULE
 find_package(git QUIET)
-execute_process(COMMAND ${GIT_EXECUTE} submodule update --init --recursive
-                WORKING DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-                RESULT_VARIABLE GIT_SUBMOD_RESULT)
+if (GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.GIT")
+    if (GIT_SUBMODULE)
+        message(STATUS "Submodule Update")
 
+        execute_process(COMMAND ${GIT_EXECUTE} submodule update --init --recursive
+                    WORKING DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+                    RESULT_VARIABLE GIT_SUBMOD_RESULT)
+        if (NOT GIT_SUBMOD_RESULT EQUAL "0")
+            message(FATAL ERROR "git submodule update --init failed")
+        endif()
+    endif()
+endif()
 
 
 add_subdirectory(external/gflw)

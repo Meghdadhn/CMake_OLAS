@@ -1,1 +1,3 @@
 sample license....
+
+This is a free software...Author @Meghdadhn

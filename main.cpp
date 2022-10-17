@@ -6,6 +6,9 @@
 int main () 
 {
 
+
+    std::cout << "This is the main code\n";
+
     // Version 
     std::cout << "Version  " << OLAS_VERSION_MAJOR << "." << OLAS_VERSION_MINOR << "\n";
 
